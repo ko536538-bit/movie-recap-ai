@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Myanmar Movie Recap AI</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#101114;
+  color:white;
+}
+
+.container{
+  max-width:600px;
+  margin:auto;
+  padding:25px 18px;
+}
+
+h1{
+  text-align:center;
+}
+
+.subtitle{
+  text-align:center;
+  color:#aaa;
+  margin-bottom:30px;
+}
+
+.card{
+  background:#1b1d22;
+  padding:20px;
+  border-radius:18px;
+  margin-bottom:20px;
+}
+
+label{
+  display:block;
+  margin-bottom:8px;
+  font-weight:bold;
+}
+
+input,select{
+  width:100%;
+  padding:14px;
+  border-radius:10px;
+  border:1px solid #444;
+  background:#111318;
+  color:white;
+  margin-bottom:15px;
+}
+
+button{
+  width:100%;
+  padding:15px;
+  border:0;
+  border-radius:12px;
+  background:#7c4dff;
+  color:white;
+  font-size:17px;
+  font-weight:bold;
+}
+
+.info{
+  color:#aaa;
+  font-size:14px;
+}
+
+#status{
+  text-align:center;
+  margin:20px 0;
+  color:#b9a7ff;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🎬 Myanmar Movie Recap AI</h1>
+
+<div class="subtitle">
+Chinese Movie → Myanmar Recap
+</div>
+
+<div class="card">
+
+<label>🎥 YouTube Video Link</label>
+
+<input
+type="url"
+id="youtube"
+placeholder="YouTube link ထည့်ပါ">
+
+<div style="text-align:center;color:#888;margin:15px">
+OR
+</div>
+
+<label>📱 ဖုန်းထဲက Video</label>
+
+<input
+type="file"
+id="video"
+accept="video/*">
+
+<div class="info">
+Maximum video length: 5 minutes
+</div>
+
+</div>
+
+<div class="card">
+
+<label>🎙️ မြန်မာ AI အသံ</label>
+
+<select id="voice">
+<option>မြန်မာ အမျိုးသမီးအသံ</option>
+<option>မြန်မာ အမျိုးသားအသံ</option>
+</select>
+
+</div>
+
+<button onclick="generate()">
+🚀 Generate Movie Recap
+</button>
+
+<div id="status"></div>
+
+</div>
+
+<script>
+
+function generate(){
+
+let youtube =
+document.getElementById("youtube").value;
+
+let video =
+document.getElementById("video").files[0];
+
+let status =
+document.getElementById("status");
+
+if(!youtube && !video){
+
+status.innerText =
+"⚠️ Video သို့မဟုတ် YouTube Link ထည့်ပါ";
+
+return;
+
+}
+
+status.innerText =
+"⏳ AI Movie Recap ပြုလုပ်နေပါတယ်...";
+
+setTimeout(function(){
+
+status.innerText =
+"✅ Video ရရှိပါပြီ။ AI Backend ကို ဆက်ချိတ်ရပါမယ်။";
+
+},2000);
+
+}
+
+</script>
+
+</body>
+</html>
